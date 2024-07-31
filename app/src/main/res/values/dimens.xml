@@ -5,4 +5,6 @@
     <dimen name="pattern_size">300dp</dimen>
     <dimen name="price_item">18sp</dimen>
     <dimen name="regular_padding">16dp</dimen>
+    <dimen name="regular_margin">16dp</dimen>
+    <dimen name="contact_us_image">40dp</dimen>
 </resources>

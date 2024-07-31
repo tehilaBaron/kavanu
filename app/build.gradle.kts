@@ -38,6 +38,12 @@ dependencies {
     implementation (libs.viewpager2)
     implementation (libs.recyclerview)
     implementation (libs.appcompat.v131)
+
+    // map
+
+    implementation ("com.google.android.gms:play-services-maps:17.0.1")
+    implementation ("com.google.android.gms:play-services-location:18.0.0")
+
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)

@@ -1,13 +1,70 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:gravity="center"
-    android:padding="16dp">
+    android:background="@color/purple1">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Tab 2 contact us" />
-</LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+
+        <ImageView
+            android:id="@+id/name"
+            android:layout_width="@dimen/contact_us_image"
+            android:layout_height="@dimen/contact_us_image"
+            android:layout_marginTop="@dimen/regular_margin"
+            android:src="@drawable/name" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="@dimen/regular_margin"
+            android:text="תהילה ברון"
+            android:textColor="@color/purple4" />
+
+        <ImageView
+            android:id="@+id/email"
+            android:layout_width="@dimen/contact_us_image"
+            android:layout_height="@dimen/contact_us_image"
+            android:src="@drawable/email" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="@dimen/regular_margin"
+            android:text="hhh@gmail.com"
+            android:textColor="@color/purple4" />
+
+        <ImageView
+            android:id="@+id/email"
+            android:layout_width="@dimen/contact_us_image"
+            android:layout_height="@dimen/contact_us_image"
+            android:src="@drawable/location" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="@dimen/regular_margin"
+            android:text="מרדכי מירקין 19 פתח תקווה"
+            android:textColor="@color/purple4" />
+
+        <ImageView
+            android:id="@+id/email"
+            android:layout_width="@dimen/contact_us_image"
+            android:layout_height="@dimen/contact_us_image"
+            android:src="@drawable/phone" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="@dimen/regular_margin"
+            android:text="0544444444"
+            android:textColor="@color/purple4" />
+
+    </LinearLayout>
+</ScrollView>
