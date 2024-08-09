@@ -2,20 +2,54 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/pattern"
     android:orientation="vertical"
-    android:padding="16dp">
+    android:padding="32dp">
+
+    <TextView
+        android:id="@+id/titleServices"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:background="#80FFFFFF"
+        android:gravity="center"
+        android:padding="@dimen/regular_padding"
+        android:text="@string/services"
+        android:textColor="@color/purple3"
+        android:textSize="22sp"
+        android:textStyle="bold" />
+
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1" />
+        android:layout_weight="1"
+        android:background="#80FFFFFF" />
 
     <TextView
         android:id="@+id/totalTimeTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#80FFFFFF"
+        android:gravity="center"
+        android:paddingVertical="@dimen/regular_padding"
+        android:text="זמן טיפול: 0 דקות"
+        android:textColor="@color/purple3"
+        android:textSize="18sp" />
+
+    <Button
+        android:id="@+id/BTN_oppointment"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="18sp"
-        android:text="Total Time: 0 minutes"
-        android:layout_marginTop="16dp" />
+        android:layout_gravity="center"
+        android:layout_marginHorizontal="@dimen/regular_margin"
+        android:layout_marginTop="@dimen/regular_margin"
+        android:backgroundTint="@color/orange"
+        android:clickable="true"
+        android:text="@string/turn"
+        android:textColor="@color/white"
+        android:textSize="@dimen/f_s_14" />
+
+
 </LinearLayout>

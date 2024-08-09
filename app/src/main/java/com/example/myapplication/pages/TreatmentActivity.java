@@ -1,6 +1,8 @@
 package com.example.myapplication.pages;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.annotation.Nullable;
@@ -9,6 +11,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.myapplication.Adapters.TreatmentAdapter;
+import com.example.myapplication.Adapters.TreatmentSelectionAdapter;
 import com.example.myapplication.Data.DataController;
 import com.example.myapplication.Fragments.PriceListFragment;
 import com.example.myapplication.Interfaces.CallBack_TreatmentSelected;
@@ -22,16 +25,19 @@ public class TreatmentActivity extends AppCompatActivity implements CallBack_Tre
 
     private TextView totalTimeTextView;
     private RecyclerView recyclerView;
-
+    private TreatmentSelectionAdapter adapter;
     private DataController dataController;
+    private Button BTN_oppointment;
+    private TextView titleServices;
 
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        initViews();
+        setContentView(R.layout.activity_treatmant);
         findViews();
+        initViews();
+
 
     }
 
@@ -41,7 +47,8 @@ public class TreatmentActivity extends AppCompatActivity implements CallBack_Tre
         dataController.getTreatmentList(new DataController.DataCallback<List<Treatment>>() {
             @Override
             public void onDataReceived(List<Treatment> treatmentList) {
-                recyclerView.setAdapter(new TreatmentAdapter(treatmentList));
+                adapter = new TreatmentSelectionAdapter(treatmentList, TreatmentActivity.this, dataController);
+                recyclerView.setAdapter(adapter);
             }
 
             @Override
@@ -49,18 +56,26 @@ public class TreatmentActivity extends AppCompatActivity implements CallBack_Tre
                 // Handle error
             }
         });
-
+        BTN_oppointment.setOnClickListener(v -> changeToAppointmentActivity());
     }
 
     private void findViews() {
         recyclerView = findViewById(R.id.recyclerView);
         totalTimeTextView = findViewById(R.id.totalTimeTextView);
+        titleServices = findViewById(R.id.titleServices);
+        BTN_oppointment = findViewById(R.id.BTN_oppointment);
     }
 
 
     @Override
     public void onTreatmentSelected(int totalSelectedTime) {
-        totalTimeTextView.setText("Total Time: " + totalSelectedTime + " minutes");
+        totalTimeTextView.setText("זמן טיפול: " + totalSelectedTime + " דקות");
+    }
+
+    private void changeToAppointmentActivity() {
+        Intent intent = new Intent(this, AppointmentsActivity.class);
+        startActivity(intent);
+        finish();
     }
 
 

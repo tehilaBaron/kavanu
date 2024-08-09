@@ -51,7 +51,7 @@ public class DetailsActivity extends AppCompatActivity {
                             break;
                     }
                 }).attach();
-        BTN_oppointment.setOnClickListener(v -> changeToOppointmentsActivity());
+        BTN_oppointment.setOnClickListener(v -> changeToTreatmentsActivity());
 
     }
 
@@ -70,7 +70,7 @@ public class DetailsActivity extends AppCompatActivity {
         weekRef.setValue(DataManager.createWeekWithWorkDays());
     }
 
-    private void changeToOppointmentsActivity() {
+    private void changeToTreatmentsActivity() {
         Intent intent = new Intent(this, TreatmentActivity.class);
         startActivity(intent);
         finish();

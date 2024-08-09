@@ -6,6 +6,7 @@ import com.example.myapplication.Enums.TreatmentEnum;
 public class Treatment {
 
     private String treatmentName = "";
+    private String keyName = "";
     private Long treatmentPrice = 0L;
     private Long treatmentTimeInMinuets = 0L;
     private Boolean isChecked = Boolean.FALSE;
@@ -56,6 +57,15 @@ public class Treatment {
 
     public Treatment setType(TreatmentEnum type) {
         this.type = type;
+        return this;
+    }
+
+    public String getKeyName() {
+        return keyName;
+    }
+
+    public Treatment setKeyName(String keyName) {
+        this.keyName = keyName;
         return this;
     }
 }

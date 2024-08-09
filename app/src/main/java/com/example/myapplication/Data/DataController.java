@@ -74,4 +74,10 @@ public class DataController {
             });
         }
     }
+
+    public void updateTreatmentSelection(Treatment treatment) {
+        // Update the treatment's selection state in the Firebase Realtime Database
+        DatabaseReference treatmentRef = FirebaseDatabase.getInstance().getReference("clinic").child("allTreatments").child(treatment.getKeyName());
+        treatmentRef.child("isChecked").setValue(treatment.getTreatmentPrice());
+    }
 }

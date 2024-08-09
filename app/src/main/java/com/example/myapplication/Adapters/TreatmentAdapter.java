@@ -3,6 +3,7 @@ package com.example.myapplication.Adapters;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CheckBox;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -20,7 +21,6 @@ public class TreatmentAdapter extends RecyclerView.Adapter<TreatmentAdapter.Trea
 
     public TreatmentAdapter(List<Treatment> treatmentList) {
         this.treatmentList = treatmentList;
-
     }
 
     @NonNull
@@ -35,28 +35,11 @@ public class TreatmentAdapter extends RecyclerView.Adapter<TreatmentAdapter.Trea
         Treatment treatment = getItem(position);
         holder.itemName.setText(treatment.getTreatmentName());
         holder.itemPrice.setText(String.valueOf(treatment.getTreatmentPrice()));
-//        holder.checkBox.setOnCheckedChangeListener((buttonView, isChecked) -> {
-//            if (isChecked) {
-//                treatmentCallback.onTreatmentSelected(getTotalSelectedTime());
-//            } else {
-//                treatmentCallback.onTreatmentSelected(getTotalSelectedTime());
-//            }
-//        });
     }
 
     @Override
     public int getItemCount() {
         return treatmentList == null ? 0 : treatmentList.size();
-    }
-
-    public int getTotalSelectedTime() {
-        int total = 0;
-//        for (int i = 0; i < getItemCount(); i++) {
-//            if (treatmentList.get(i).isChecked()) {
-//                total += treatmentList.get(i).getTreatmentTimeInMinuets();
-//            }
-//        }
-        return total;
     }
 
     private Treatment getItem(int position) {
@@ -66,13 +49,13 @@ public class TreatmentAdapter extends RecyclerView.Adapter<TreatmentAdapter.Trea
     public static class TreatmentViewHolder extends RecyclerView.ViewHolder {
         TextView itemName;
         TextView itemPrice;
-        //CheckBox checkBox;
+
 
         public TreatmentViewHolder(@NonNull View itemView) {
             super(itemView);
             itemName = itemView.findViewById(R.id.itemName);
             itemPrice = itemView.findViewById(R.id.itemPrice);
-            //  checkBox = itemView.findViewById(R.id.checkBox);
+
         }
     }
 }

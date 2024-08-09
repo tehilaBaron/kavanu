@@ -16,6 +16,7 @@ public class DataManager {
                 .setTreatmentName("לק ג'ל")
                 .setTreatmentPrice(130L)
                 .setIsChecked(false)
+                .setKeyName("1_GEL")
                 .setTreatmentTimeInMinuets(60L)
                 .setType(TreatmentEnum.GEL));
 
@@ -23,6 +24,7 @@ public class DataManager {
                 .setTreatmentName("תיקון מבנה אנטומי")
                 .setTreatmentPrice(150L)
                 .setIsChecked(false)
+                .setKeyName("2_FIX_STRUCTURE")
                 .setTreatmentTimeInMinuets(60L)
                 .setType(TreatmentEnum.FIX_STRUCTURE));
 
@@ -30,6 +32,7 @@ public class DataManager {
                 .setTreatmentName("ציור פשוט")
                 .setTreatmentPrice(5L)
                 .setIsChecked(false)
+                .setKeyName("3_SIMPLE_DRAW")
                 .setTreatmentTimeInMinuets(0L)
                 .setType(TreatmentEnum.SIMPLE_DRAW));
 
@@ -37,6 +40,7 @@ public class DataManager {
                 .setTreatmentName("ציור רגיל")
                 .setTreatmentPrice(10L)
                 .setIsChecked(false)
+                .setKeyName("4_REGULAR_DRAW")
                 .setTreatmentTimeInMinuets(5L)
                 .setType(TreatmentEnum.REGULAR_DRAW));
 
@@ -44,6 +48,7 @@ public class DataManager {
                 .setTreatmentName("ציור מורכב")
                 .setTreatmentPrice(20L)
                 .setIsChecked(false)
+                .setKeyName("5_COMPLICATED_DRAW")
                 .setTreatmentTimeInMinuets(10L)
                 .setType(TreatmentEnum.COMPLICATED_DRAW));
 
@@ -51,6 +56,7 @@ public class DataManager {
                 .setTreatmentName("מילוי בפוליג'ל")
                 .setTreatmentPrice(180L)
                 .setIsChecked(false)
+                .setKeyName("6_FILL_POLYGEL")
                 .setTreatmentTimeInMinuets(60L)
                 .setType(TreatmentEnum.FILL_POLYGEL));
 
@@ -58,6 +64,7 @@ public class DataManager {
                 .setTreatmentName("בניה בפוליג'ל")
                 .setTreatmentPrice(280L)
                 .setIsChecked(false)
+                .setKeyName("7_POLYGEL")
                 .setTreatmentTimeInMinuets(120L)
                 .setType(TreatmentEnum.POLYGEL));
 
@@ -65,6 +72,7 @@ public class DataManager {
                 .setTreatmentName("השלמת ציפורן")
                 .setTreatmentPrice(15L)
                 .setIsChecked(false)
+                .setKeyName("8_NAIL_REPAIR")
                 .setTreatmentTimeInMinuets(5L)
                 .setType(TreatmentEnum.NAIL_REPAIR));
 

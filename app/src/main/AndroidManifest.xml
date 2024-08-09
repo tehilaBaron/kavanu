@@ -33,10 +33,14 @@
             android:name=".MainActivity"
             android:exported="true" />
         <activity
-            android:name=".pages.OppointmentsActivity"
+            android:name=".pages.AppointmentsActivity"
             android:exported="true" />
         <activity
             android:name=".pages.DetailsActivity"
+            android:exported="true" />
+
+        <activity
+            android:name=".pages.TreatmentActivity"
             android:exported="true" />
     </application>
 
