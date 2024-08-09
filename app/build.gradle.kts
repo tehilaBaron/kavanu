@@ -1,5 +1,6 @@
 plugins {
     alias(libs.plugins.android.application)
+    alias(libs.plugins.google.services)
 }
 
 android {
@@ -34,17 +35,25 @@ dependencies {
     implementation(libs.material)
     implementation(libs.activity)
     implementation(libs.constraintlayout)
-    implementation (libs.material.v140)
-    implementation (libs.viewpager2)
-    implementation (libs.recyclerview)
-    implementation (libs.appcompat.v131)
+    implementation(libs.material.v140)
+    implementation(libs.viewpager2)
+    implementation(libs.recyclerview)
+    implementation(libs.appcompat.v131)
 
     // map
 
-    implementation ("com.google.android.gms:play-services-maps:17.0.1")
-    implementation ("com.google.android.gms:play-services-location:18.0.0")
+    implementation(libs.play.services.maps)
+    implementation(libs.play.services.location)
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)
+
+    //firebase
+    implementation(platform(libs.firebase.bom))
+    implementation(libs.firebase.analytics)
+    implementation(libs.firebase.database)
+
+    //firebase authentication
+    implementation (libs.firebase.ui.auth)
 }

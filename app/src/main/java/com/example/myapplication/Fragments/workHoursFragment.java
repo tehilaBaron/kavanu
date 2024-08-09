@@ -5,14 +5,75 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
+
+import com.example.myapplication.Adapters.TreatmentAdapter;
+import com.example.myapplication.Adapters.WorkDayAdapter;
+import com.example.myapplication.Data.DataController;
+import com.example.myapplication.Enums.Day;
+import com.example.myapplication.Models.Treatment;
+import com.example.myapplication.Models.WorkDay;
+
+import java.time.LocalTime;
+import java.util.ArrayList;
+import java.util.List;
+
 
 import com.example.myapplication.R;
 
 public class workHoursFragment extends Fragment {
+
+    private DataController dataController;
+    private RecyclerView recyclerView;
+
+    public workHoursFragment() {
+    }
+
+    @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_work_hours_tab, container, false);
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        View v = inflater.inflate(R.layout.fragment_work_hours_tab, container, false);
+        findViews(v);
+        initViews();
+        return v;
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+
+        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+
+        List<WorkDay> workDays = new ArrayList<>();
+
+
+        WorkDayAdapter adapter = new WorkDayAdapter(workDays);
+        recyclerView.setAdapter(adapter);
+
+    }
+
+    private void initViews() {
+        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+
+        dataController = new DataController();
+        dataController.getWorkDayList(new DataController.DataCallback<List<WorkDay>>() {
+            @Override
+            public void onDataReceived(List<WorkDay> workDayList) {
+                recyclerView.setAdapter(new WorkDayAdapter(workDayList));
+            }
+
+            @Override
+            public void onError(Exception e) {
+                // Handle the error
+            }
+        });
+    }
+
+    private void findViews(View v) {
+        recyclerView = v.findViewById(R.id.recyclerView);
     }
 }

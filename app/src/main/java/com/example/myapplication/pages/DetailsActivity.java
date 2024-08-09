@@ -1,25 +1,25 @@
 package com.example.myapplication.pages;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager2.widget.ViewPager2;
 
 import com.example.myapplication.Adapters.ViewPagerAdapter;
-import com.example.myapplication.Models.Price;
+import com.example.myapplication.Data.DataManager;
 import com.example.myapplication.R;
 import com.google.android.material.tabs.TabLayout;
 import com.google.android.material.tabs.TabLayoutMediator;
-
-import java.util.Arrays;
-import java.util.List;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class DetailsActivity extends AppCompatActivity {
 
     private TabLayout tabLayout;
     private ViewPager2 viewPager;
+    private Button BTN_oppointment;
 
 
     @Override
@@ -28,8 +28,12 @@ public class DetailsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_details);
         findViews();
         initViews();
+        saveDataToFireBase();
+    }
 
-
+    private void initViews() {
+        ViewPagerAdapter adapter = new ViewPagerAdapter(this);
+        viewPager.setAdapter(adapter);
         new TabLayoutMediator(tabLayout, viewPager,
                 (tab, position) -> {
                     switch (position) {
@@ -47,16 +51,28 @@ public class DetailsActivity extends AppCompatActivity {
                             break;
                     }
                 }).attach();
-    }
+        BTN_oppointment.setOnClickListener(v -> changeToOppointmentsActivity());
 
-    private void initViews() {
-        ViewPagerAdapter adapter = new ViewPagerAdapter(this);
-        viewPager.setAdapter(adapter);
     }
 
     private void findViews() {
         tabLayout = findViewById(R.id.tabLayout);
         viewPager = findViewById(R.id.viewPager);
+        BTN_oppointment = findViewById(R.id.BTN_oppointment);
 
+    }
+
+    private void saveDataToFireBase() {
+        FirebaseDatabase db = FirebaseDatabase.getInstance();
+        DatabaseReference clinicRef = db.getReference("clinic");
+        DatabaseReference weekRef = db.getReference("week");
+        clinicRef.setValue(DataManager.createClinicWithTreatments());
+        weekRef.setValue(DataManager.createWeekWithWorkDays());
+    }
+
+    private void changeToOppointmentsActivity() {
+        Intent intent = new Intent(this, TreatmentActivity.class);
+        startActivity(intent);
+        finish();
     }
 }

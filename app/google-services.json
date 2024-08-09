@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "888157457813",
+    "firebase_url": "https://kavanu-8c8e1-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "kavanu-8c8e1",
+    "storage_bucket": "kavanu-8c8e1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:888157457813:android:1c1ca5127871ab9728ba9c",
+        "android_client_info": {
+          "package_name": "com.example.myapplication"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "888157457813-9mqe5h4bv55i0eirlp4960o0ecdefef0.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.myapplication",
+            "certificate_hash": "695aa05ba8a829d58b97a9d6307be5c0387a3ae8"
+          }
+        },
+        {
+          "client_id": "888157457813-3ag9v6ajcntk7f8btu36lk35cbq5ra0k.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCHmkl7G6n2ZkbB0Z6i_55vapDBNP83tg4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "888157457813-3ag9v6ajcntk7f8btu36lk35cbq5ra0k.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
