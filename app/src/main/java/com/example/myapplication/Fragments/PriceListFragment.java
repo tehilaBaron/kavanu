@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.myapplication.Adapters.TreatmentAdapter;
 import com.example.myapplication.Data.DataController;
+import com.example.myapplication.Models.Appointment;
 import com.example.myapplication.Models.Treatment;
 import com.example.myapplication.R;
 

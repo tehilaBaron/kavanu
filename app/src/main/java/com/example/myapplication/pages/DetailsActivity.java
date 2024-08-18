@@ -66,8 +66,10 @@ public class DetailsActivity extends AppCompatActivity {
         FirebaseDatabase db = FirebaseDatabase.getInstance();
         DatabaseReference clinicRef = db.getReference("clinic");
         DatabaseReference weekRef = db.getReference("week");
+        DatabaseReference appointmentRef = db.getReference("appointment");
         clinicRef.setValue(DataManager.createClinicWithTreatments());
         weekRef.setValue(DataManager.createWeekWithWorkDays());
+        appointmentRef.setValue(DataManager.createAppointments());
     }
 
     private void changeToTreatmentsActivity() {

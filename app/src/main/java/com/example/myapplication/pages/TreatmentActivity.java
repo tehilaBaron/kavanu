@@ -10,15 +10,13 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.myapplication.Adapters.TreatmentAdapter;
 import com.example.myapplication.Adapters.TreatmentSelectionAdapter;
 import com.example.myapplication.Data.DataController;
-import com.example.myapplication.Fragments.PriceListFragment;
 import com.example.myapplication.Interfaces.CallBack_TreatmentSelected;
+import com.example.myapplication.Models.Appointment;
 import com.example.myapplication.Models.Treatment;
 import com.example.myapplication.R;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class TreatmentActivity extends AppCompatActivity implements CallBack_TreatmentSelected {
@@ -29,6 +27,8 @@ public class TreatmentActivity extends AppCompatActivity implements CallBack_Tre
     private DataController dataController;
     private Button BTN_oppointment;
     private TextView titleServices;
+
+    private int totalSelectedTime;
 
 
     @Override
@@ -68,12 +68,14 @@ public class TreatmentActivity extends AppCompatActivity implements CallBack_Tre
 
 
     @Override
-    public void onTreatmentSelected(int totalSelectedTime) {
-        totalTimeTextView.setText("זמן טיפול: " + totalSelectedTime + " דקות");
+    public void onTreatmentSelected(int time) {
+        totalSelectedTime = time;
+        totalTimeTextView.setText("זמן טיפול: " + time + " דקות");
     }
 
     private void changeToAppointmentActivity() {
         Intent intent = new Intent(this, AppointmentsActivity.class);
+        intent.putExtra(AppointmentsActivity.KEY_TIME, totalSelectedTime);
         startActivity(intent);
         finish();
     }

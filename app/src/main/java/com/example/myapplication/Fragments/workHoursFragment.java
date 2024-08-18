@@ -12,14 +12,11 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 
-import com.example.myapplication.Adapters.TreatmentAdapter;
 import com.example.myapplication.Adapters.WorkDayAdapter;
 import com.example.myapplication.Data.DataController;
-import com.example.myapplication.Enums.Day;
-import com.example.myapplication.Models.Treatment;
+import com.example.myapplication.Models.Appointment;
 import com.example.myapplication.Models.WorkDay;
 
-import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
 

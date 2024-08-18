@@ -2,7 +2,8 @@ package com.example.myapplication.Data;
 
 import androidx.annotation.NonNull;
 
-import com.example.myapplication.Enums.Day;
+import com.example.myapplication.Models.Appointment;
+import com.example.myapplication.Models.Appointments;
 import com.example.myapplication.Models.Clinic;
 import com.example.myapplication.Models.Treatment;
 import com.example.myapplication.Models.Week;
@@ -14,15 +15,13 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Comparator;
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class DataController {
 
     private List<Treatment> treatmentList = null;
     private List<WorkDay> workDayList = null;
+    private List<Appointment> appointmentList = null;
 
 
     public interface DataCallback<T> {
@@ -33,7 +32,6 @@ public class DataController {
 
     public void getTreatmentList(final DataCallback<List<Treatment>> callback) {
         if (treatmentList != null) {
-            // Return cached data if already fetched
             callback.onDataReceived(treatmentList);
         } else {
             DatabaseReference clinicRef = FirebaseDatabase.getInstance().getReference("clinic");
@@ -55,7 +53,7 @@ public class DataController {
 
     public void getWorkDayList(final DataCallback<List<WorkDay>> callback) {
         if (workDayList != null) {
-            // Return cached data if already fetched
+
             callback.onDataReceived(workDayList);
         } else {
             DatabaseReference weekRef = FirebaseDatabase.getInstance().getReference("week");
@@ -75,8 +73,29 @@ public class DataController {
         }
     }
 
+    public void getAppointmentList(final DataCallback<List<Appointment>> callback) {
+        if (appointmentList != null) {
+
+            callback.onDataReceived(appointmentList);
+        } else {
+            DatabaseReference appointmentRef = FirebaseDatabase.getInstance().getReference("appointment");
+            appointmentRef.addListenerForSingleValueEvent(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                    Appointments appointments = dataSnapshot.getValue(Appointments.class);
+                    List<Appointment> appointmentList = new ArrayList<>(appointments.getAllAppointments().values());
+                    callback.onDataReceived(appointmentList);
+                }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError error) {
+                    callback.onError(error.toException());
+                }
+            });
+        }
+    }
+
     public void updateTreatmentSelection(Treatment treatment) {
-        // Update the treatment's selection state in the Firebase Realtime Database
         DatabaseReference treatmentRef = FirebaseDatabase.getInstance().getReference("clinic").child("allTreatments").child(treatment.getKeyName());
         treatmentRef.child("isChecked").setValue(treatment.getTreatmentPrice());
     }

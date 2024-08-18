@@ -2,10 +2,15 @@ package com.example.myapplication.Data;
 
 import com.example.myapplication.Enums.Day;
 import com.example.myapplication.Enums.TreatmentEnum;
+import com.example.myapplication.Models.Appointment;
+import com.example.myapplication.Models.Appointments;
 import com.example.myapplication.Models.Clinic;
 import com.example.myapplication.Models.Treatment;
 import com.example.myapplication.Models.Week;
 import com.example.myapplication.Models.WorkDay;
+
+import java.util.Arrays;
+import java.util.Collections;
 
 public class DataManager {
 
@@ -128,6 +133,42 @@ public class DataManager {
 
 
         return week;
+    }
+
+    public static Appointments createAppointments() {
+        Appointments appointments = new Appointments();
+
+        appointments.getAllAppointments().put("344212133", new Appointment()
+                .setClientName("תהילה ברון")
+                .setTreatments(Arrays.asList(TreatmentEnum.GEL))
+                .setDay(Day.SUNDAY)
+                .setStartHour("09:00")
+                .setEndHour("10:00"));
+
+        appointments.getAllAppointments().put("314949493", new Appointment()
+                .setClientName("שירה בירה")
+                .setTreatments(Arrays.asList(TreatmentEnum.GEL, TreatmentEnum.FILL_POLYGEL))
+                .setDay(Day.SUNDAY)
+                .setStartHour("11:30")
+                .setEndHour("13:30"));
+
+        appointments.getAllAppointments().put("242423522", new Appointment()
+                .setClientName("דנה דן")
+                .setTreatments(Arrays.asList(TreatmentEnum.POLYGEL, TreatmentEnum.REGULAR_DRAW))
+                .setDay(Day.MONDAY)
+                .setStartHour("10:00")
+                .setEndHour("12:05"));
+
+        appointments.getAllAppointments().put("133342422", new Appointment()
+
+                .setClientName("מור מורן")
+                .setTreatments(Arrays.asList(TreatmentEnum.GEL, TreatmentEnum.NAIL_REPAIR, TreatmentEnum.COMPLICATED_DRAW, TreatmentEnum.REGULAR_DRAW))
+                .setDay(Day.SUNDAY)
+                .setStartHour("13:30")
+                .setEndHour("14:50"));
+
+
+        return appointments;
     }
 
 
