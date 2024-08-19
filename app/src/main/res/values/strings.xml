@@ -5,4 +5,14 @@
     <string name="turn">לקביעת תור</string>
     <string name="services">בחרי את השירותים הרצויים</string>
     <string name="selectHour">בחרי את השעה המתאימה לך</string>
+    <string name="manager_appointment">יומן הפגישות שלך :</string>
+    <string name="connect">בחרי כיצד תרצי להתחבר:</string>
+    <string name="welcome">ברוכה הבאה לkavanu!</string>
+    <string name="client">לקוחה</string>
+    <string name="manager">מנהלת</string>
+    <string name="enter_name">הכניסי את שמך</string>
+    <string name="password">הכניסי סיסמא</string>
+    <string name="enter">אישור</string>
+    <string name="thats_it">זהו קבענו!!</string>
+
 </resources>

@@ -2,21 +2,21 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/pattern"
+    android:background="@drawable/splash_gradient_background"
+    android:gravity="center"
     android:orientation="vertical"
-    android:padding="32dp">
+    android:padding="@dimen/extra_padding">
 
     <TextView
         android:id="@+id/welcome_text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:background="#80FFFFFF"
         android:padding="@dimen/regular_padding"
-        android:text="זהו קבענו!!"
+        android:text="@string/thats_it"
         android:textAlignment="center"
-        android:textColor="@color/purple4"
-        android:textSize="30sp"
+        android:textColor="@color/purple3"
+        android:textSize="@dimen/smaller_main_title"
         android:textStyle="bold" />
 
     <TextView
@@ -24,11 +24,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:background="#80FFFFFF"
         android:padding="@dimen/regular_padding"
+
         android:text="שם"
         android:textAlignment="center"
-        android:textColor="@color/light_orange"
-        android:textSize="20sp" />
+        android:textColor="@color/purple4"
+        android:textSize="@dimen/welcome_subtitle" />
 
 </LinearLayout>

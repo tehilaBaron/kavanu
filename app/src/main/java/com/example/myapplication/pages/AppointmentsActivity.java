@@ -64,6 +64,7 @@ public class AppointmentsActivity extends AppCompatActivity implements CallBack_
     }
 
     private void initViews() {
+        selectedTreatments = new ArrayList<>();
         isOpen = true;
         dataController = new DataController();
         Intent previousIntent = getIntent();

@@ -1,11 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="main_title">48sp</dimen>
+    <dimen name="smaller_main_title">32sp</dimen>
     <dimen name="logo_size">150dp</dimen>
     <dimen name="pattern_size">250dp</dimen>
     <dimen name="price_item">18sp</dimen>
     <dimen name="regular_padding">16dp</dimen>
     <dimen name="regular_margin">16dp</dimen>
+    <dimen name="extra_margin">32dp</dimen>
+    <dimen name="extra_padding">32dp</dimen>
     <dimen name="contact_us_image">40dp</dimen>
     <dimen name="f_s_14">14sp</dimen>
+    <dimen name="main_img">200dp</dimen>
+    <dimen name="welcome_title">26sp</dimen>
+    <dimen name="welcome_subtitle">20sp</dimen>
+    <dimen name="f_s_16">16sp</dimen>
 </resources>

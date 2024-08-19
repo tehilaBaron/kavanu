@@ -2,53 +2,47 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/pattern"
+    android:background="@drawable/background_main"
     android:orientation="vertical"
-    android:padding="32dp">
+    android:padding="@dimen/extra_padding">
+
+    <ImageView
+        android:id="@+id/name"
+        android:layout_width="@dimen/main_img"
+        android:layout_height="@dimen/main_img"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/regular_margin"
+        android:src="@drawable/nail_polish_hand" />
 
     <TextView
         android:id="@+id/welcome_text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:background="#80FFFFFF"
-        android:padding="@dimen/regular_padding"
-        android:text="ברוכה הבאה לkavanu!"
+        android:layout_marginVertical="@dimen/regular_margin"
+        android:text="@string/welcome"
         android:textAlignment="center"
         android:textColor="@color/purple4"
-        android:textSize="30sp"
+        android:textSize="@dimen/welcome_title"
         android:textStyle="bold" />
 
-    <TextView
-        android:id="@+id/welcome_text"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:background="#80FFFFFF"
-        android:padding="@dimen/regular_padding"
-        android:text="לפני שנתחיל נצטרך כמה פרטים קטנים"
-        android:textAlignment="center"
-        android:textColor="@color/light_orange"
-        android:textSize="20sp" />
 
     <TextView
         android:id="@+id/mode_text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:background="#80FFFFFF"
         android:padding="@dimen/regular_padding"
-        android:text="בחרי כיצד תרצי להתחבר:"
+        android:text="@string/connect"
         android:textAlignment="center"
-        android:textColor="@color/purple3"
-        android:textSize="16sp" />
+        android:textColor="@color/light_orange"
+        android:textSize="@dimen/welcome_subtitle" />
 
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#80FFFFFF"
         android:orientation="horizontal"
-        android:padding="16dp">
+        android:padding="@dimen/regular_padding">
 
         <Button
             android:id="@+id/client_button"
@@ -56,7 +50,7 @@
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="@dimen/regular_margin"
             android:layout_weight="1"
-            android:text="לקוחה" />
+            android:text="@string/client" />
 
         <Button
             android:id="@+id/manager_button"
@@ -64,7 +58,7 @@
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="@dimen/regular_margin"
             android:layout_weight="1"
-            android:text="מנהלת" />
+            android:text="@string/manager" />
     </LinearLayout>
 
 
@@ -72,26 +66,31 @@
         android:id="@+id/name_input"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="הכניסי את שמך"
+        android:hint="@string/enter_name"
         android:textColor="@color/purple4"
         android:textColorHint="@color/purple3"
+        android:textSize="@dimen/f_s_16"
         android:visibility="gone" />
 
     <EditText
         android:id="@+id/password_input"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="הכניסי סיסמא"
+        android:hint="@string/password"
         android:inputType="textPassword"
         android:textColor="@color/purple4"
         android:textColorHint="@color/purple3"
+        android:textSize="@dimen/f_s_16"
         android:visibility="gone" />
 
     <Button
         android:id="@+id/submit_button"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="אישור"
+        android:layout_gravity="center"
+        android:layout_marginVertical="@dimen/regular_margin"
+        android:backgroundTint="@color/orange"
+        android:text="@string/enter"
         android:visibility="gone" />
 
 </LinearLayout>

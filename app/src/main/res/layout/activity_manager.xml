@@ -1,0 +1,35 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/gradient_background"
+    android:orientation="vertical"
+    android:padding="@dimen/extra_margin">
+
+    <androidx.appcompat.widget.AppCompatImageButton
+        android:id="@+id/back_BTN"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:background="@color/fui_transparent"
+        android:clickable="true"
+        android:src="@drawable/back" />
+
+    <TextView
+        android:id="@+id/mode_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginVertical="@dimen/regular_margin"
+        android:text="@string/manager_appointment"
+        android:textAlignment="center"
+        android:textColor="@color/purple3"
+        android:textSize="@dimen/smaller_main_title" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_view_appointments"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:scrollbars="vertical" />
+
+</LinearLayout>
