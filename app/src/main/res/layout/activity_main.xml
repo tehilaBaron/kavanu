@@ -1,19 +1,97 @@
-<?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
+<!-- res/layout/activity_welcome.xml -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    android:background="@drawable/pattern"
+    android:orientation="vertical"
+    android:padding="32dp">
 
     <TextView
-        android:layout_width="wrap_content"
+        android:id="@+id/welcome_text"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_gravity="center"
+        android:background="#80FFFFFF"
+        android:padding="@dimen/regular_padding"
+        android:text="ברוכה הבאה לkavanu!"
+        android:textAlignment="center"
+        android:textColor="@color/purple4"
+        android:textSize="30sp"
+        android:textStyle="bold" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <TextView
+        android:id="@+id/welcome_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:background="#80FFFFFF"
+        android:padding="@dimen/regular_padding"
+        android:text="לפני שנתחיל נצטרך כמה פרטים קטנים"
+        android:textAlignment="center"
+        android:textColor="@color/light_orange"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/mode_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:background="#80FFFFFF"
+        android:padding="@dimen/regular_padding"
+        android:text="בחרי כיצד תרצי להתחבר:"
+        android:textAlignment="center"
+        android:textColor="@color/purple3"
+        android:textSize="16sp" />
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#80FFFFFF"
+        android:orientation="horizontal"
+        android:padding="16dp">
+
+        <Button
+            android:id="@+id/client_button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/regular_margin"
+            android:layout_weight="1"
+            android:text="לקוחה" />
+
+        <Button
+            android:id="@+id/manager_button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/regular_margin"
+            android:layout_weight="1"
+            android:text="מנהלת" />
+    </LinearLayout>
+
+
+    <EditText
+        android:id="@+id/name_input"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="הכניסי את שמך"
+        android:textColor="@color/purple4"
+        android:textColorHint="@color/purple3"
+        android:visibility="gone" />
+
+    <EditText
+        android:id="@+id/password_input"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="הכניסי סיסמא"
+        android:inputType="textPassword"
+        android:textColor="@color/purple4"
+        android:textColorHint="@color/purple3"
+        android:visibility="gone" />
+
+    <Button
+        android:id="@+id/submit_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="אישור"
+        android:visibility="gone" />
+
+</LinearLayout>

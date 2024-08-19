@@ -2,6 +2,7 @@ package com.example.myapplication.pages;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 
 import androidx.activity.EdgeToEdge;
 import androidx.activity.result.ActivityResultCallback;
@@ -42,10 +43,9 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
 
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-        if(user == null){
+        if (user == null) {
             signIn();
-        }
-        else {
+        } else {
             transactToMainActivity();
         }
 
@@ -55,15 +55,14 @@ public class LoginActivity extends AppCompatActivity {
         // Choose authentication providers
         List<AuthUI.IdpConfig> providers = Arrays.asList(
                 new AuthUI.IdpConfig.EmailBuilder().build(),
-                new AuthUI.IdpConfig.PhoneBuilder().build(),
-                new AuthUI.IdpConfig.GoogleBuilder().build());
+                new AuthUI.IdpConfig.PhoneBuilder().build());
 
 // Create and launch sign-in intent
         Intent signInIntent = AuthUI.getInstance()
                 .createSignInIntentBuilder()
                 .setAvailableProviders(providers)
                 .setLogo(R.drawable.logo)
-
+                .setTheme(R.style.FirebaseAuthTheme)
                 .build();
         signInLauncher.launch(signInIntent);
     }
@@ -84,8 +83,8 @@ public class LoginActivity extends AppCompatActivity {
     }
 
 
-    private void transactToMainActivity(){
-        Intent i = new Intent(this, DetailsActivity.class);
+    private void transactToMainActivity() {
+        Intent i = new Intent(this, MainActivity.class);
         startActivity(i);
         finish();
     }

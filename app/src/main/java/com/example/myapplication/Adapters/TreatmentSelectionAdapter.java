@@ -10,16 +10,18 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.myapplication.Data.DataController;
+import com.example.myapplication.Enums.TreatmentEnum;
 import com.example.myapplication.Interfaces.CallBack_TreatmentSelected;
 import com.example.myapplication.Models.Treatment;
 import com.example.myapplication.R;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class TreatmentSelectionAdapter extends RecyclerView.Adapter<TreatmentSelectionAdapter.TreatmentViewHolder> {
     private List<Treatment> treatmentList;
     private CallBack_TreatmentSelected listener;
-
+    private List<TreatmentEnum> selectedTreatments = new ArrayList<>();
     private DataController dataController;
 
     public TreatmentSelectionAdapter(List<Treatment> treatmentList, CallBack_TreatmentSelected listener, DataController dataController) {
@@ -65,15 +67,13 @@ public class TreatmentSelectionAdapter extends RecyclerView.Adapter<TreatmentSel
             checkBox.setOnCheckedChangeListener((buttonView, isChecked) -> {
                 treatment.setIsChecked(isChecked);
 
-                // Update the database using the passed DataController instance
                 if (dataController != null) {
                     dataController.updateTreatmentSelection(treatment);
                 }
 
-                // Notify listener about the total selected time
                 if (listener != null) {
                     int totalSelectedTime = calculateTotalSelectedTime();
-                    listener.onTreatmentSelected(totalSelectedTime);
+                    listener.onTreatmentSelected(totalSelectedTime, selectedTreatments);
                 }
             });
         }
@@ -84,6 +84,7 @@ public class TreatmentSelectionAdapter extends RecyclerView.Adapter<TreatmentSel
         for (Treatment treatment : treatmentList) {
             if (treatment.getIsChecked()) {
                 totalTime += treatment.getTreatmentTimeInMinuets();
+                selectedTreatments.add(treatment.getType());
             }
         }
         return totalTime;

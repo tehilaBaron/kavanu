@@ -4,11 +4,14 @@
     android:orientation="horizontal"
     android:padding="8dp">
 
-    <TextView
-        android:id="@+id/startTimeTextView"
+    <Button
+        android:id="@+id/startTimeBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:backgroundTint="@color/white"
         android:text="Start Time"
-        android:textColor="@color/purple3"/>
+        android:textColor="@color/purple3"
+
+        />
 
 </LinearLayout>

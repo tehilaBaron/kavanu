@@ -16,10 +16,11 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 public class DetailsActivity extends AppCompatActivity {
-
+    public static final String KEY_NAME = "KEY_NAME";
     private TabLayout tabLayout;
     private ViewPager2 viewPager;
     private Button BTN_oppointment;
+    private String clientName;
 
 
     @Override
@@ -28,10 +29,12 @@ public class DetailsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_details);
         findViews();
         initViews();
-        saveDataToFireBase();
+
     }
 
     private void initViews() {
+        Intent previousIntent = getIntent();
+        clientName = (String) previousIntent.getSerializableExtra(KEY_NAME);
         ViewPagerAdapter adapter = new ViewPagerAdapter(this);
         viewPager.setAdapter(adapter);
         new TabLayoutMediator(tabLayout, viewPager,
@@ -62,18 +65,9 @@ public class DetailsActivity extends AppCompatActivity {
 
     }
 
-    private void saveDataToFireBase() {
-        FirebaseDatabase db = FirebaseDatabase.getInstance();
-        DatabaseReference clinicRef = db.getReference("clinic");
-        DatabaseReference weekRef = db.getReference("week");
-        DatabaseReference appointmentRef = db.getReference("appointment");
-        clinicRef.setValue(DataManager.createClinicWithTreatments());
-        weekRef.setValue(DataManager.createWeekWithWorkDays());
-        appointmentRef.setValue(DataManager.createAppointments());
-    }
-
     private void changeToTreatmentsActivity() {
         Intent intent = new Intent(this, TreatmentActivity.class);
+        intent.putExtra(DetailsActivity.KEY_NAME, clientName);
         startActivity(intent);
         finish();
     }

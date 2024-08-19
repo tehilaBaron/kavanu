@@ -1,5 +1,7 @@
 package com.example.myapplication.Data;
 
+import android.util.Log;
+
 import androidx.annotation.NonNull;
 
 import com.example.myapplication.Models.Appointment;
@@ -26,7 +28,6 @@ public class DataController {
 
     public interface DataCallback<T> {
         void onDataReceived(T data);
-
         void onError(Exception e);
     }
 
@@ -94,6 +95,28 @@ public class DataController {
             });
         }
     }
+
+    public void addAppointmentToDatabase(Appointment appointment) {
+        // Generate a unique key for the new appointment
+        String appointmentId = FirebaseDatabase.getInstance().getReference("appointment").push().getKey();
+
+        if (appointmentId != null) {
+            // Save the new appointment under the generated unique key
+            FirebaseDatabase.getInstance().getReference("appointment")
+                    .child("allAppointments")
+                    .child(appointmentId)
+                    .setValue(appointment)
+                    .addOnSuccessListener(aVoid -> {
+                        // Handle success
+                        Log.d("DataController", "Appointment added successfully");
+                    })
+                    .addOnFailureListener(e -> {
+                        // Handle failure
+                        Log.e("DataController", "Failed to add appointment", e);
+                    });
+        }
+    }
+
 
     public void updateTreatmentSelection(Treatment treatment) {
         DatabaseReference treatmentRef = FirebaseDatabase.getInstance().getReference("clinic").child("allTreatments").child(treatment.getKeyName());

@@ -18,6 +18,7 @@ import com.example.myapplication.Models.Appointment;
 import com.example.myapplication.Models.WorkDay;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 
 
@@ -60,12 +61,12 @@ public class workHoursFragment extends Fragment {
         dataController.getWorkDayList(new DataController.DataCallback<List<WorkDay>>() {
             @Override
             public void onDataReceived(List<WorkDay> workDayList) {
+                workDayList.sort(Comparator.comparing(WorkDay::getDayEnum));
                 recyclerView.setAdapter(new WorkDayAdapter(workDayList));
             }
 
             @Override
             public void onError(Exception e) {
-                // Handle the error
             }
         });
     }

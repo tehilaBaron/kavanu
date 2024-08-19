@@ -12,23 +12,25 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.myapplication.Adapters.TreatmentSelectionAdapter;
 import com.example.myapplication.Data.DataController;
+import com.example.myapplication.Enums.TreatmentEnum;
 import com.example.myapplication.Interfaces.CallBack_TreatmentSelected;
 import com.example.myapplication.Models.Appointment;
 import com.example.myapplication.Models.Treatment;
 import com.example.myapplication.R;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class TreatmentActivity extends AppCompatActivity implements CallBack_TreatmentSelected {
-
+    public static final String KEY_NAME = "KEY_NAME";
     private TextView totalTimeTextView;
     private RecyclerView recyclerView;
     private TreatmentSelectionAdapter adapter;
     private DataController dataController;
     private Button BTN_oppointment;
-    private TextView titleServices;
-
+    private String clientName;
     private int totalSelectedTime;
+    private ArrayList<String> treatments;
 
 
     @Override
@@ -42,6 +44,9 @@ public class TreatmentActivity extends AppCompatActivity implements CallBack_Tre
     }
 
     private void initViews() {
+        treatments = new ArrayList<>();
+        Intent previousIntent = getIntent();
+        clientName = (String) previousIntent.getSerializableExtra(KEY_NAME);
         dataController = new DataController();
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         dataController.getTreatmentList(new DataController.DataCallback<List<Treatment>>() {
@@ -62,20 +67,23 @@ public class TreatmentActivity extends AppCompatActivity implements CallBack_Tre
     private void findViews() {
         recyclerView = findViewById(R.id.recyclerView);
         totalTimeTextView = findViewById(R.id.totalTimeTextView);
-        titleServices = findViewById(R.id.titleServices);
         BTN_oppointment = findViewById(R.id.BTN_oppointment);
     }
 
 
     @Override
-    public void onTreatmentSelected(int time) {
+    public void onTreatmentSelected(int time, List<TreatmentEnum> treatmentList) {
         totalSelectedTime = time;
         totalTimeTextView.setText("זמן טיפול: " + time + " דקות");
+        for (TreatmentEnum treatment : treatmentList)
+            treatments.add(treatment.toString());
     }
 
     private void changeToAppointmentActivity() {
         Intent intent = new Intent(this, AppointmentsActivity.class);
         intent.putExtra(AppointmentsActivity.KEY_TIME, totalSelectedTime);
+        intent.putExtra(AppointmentsActivity.KEY_NAME, clientName);
+        intent.putStringArrayListExtra(AppointmentsActivity.KEY_TREATMENT, treatments);
         startActivity(intent);
         finish();
     }

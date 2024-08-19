@@ -3,11 +3,12 @@ package com.example.myapplication.Models;
 import com.example.myapplication.Enums.Day;
 import com.example.myapplication.Enums.TreatmentEnum;
 
+import java.io.Serializable;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
-public class Appointment {
+public class Appointment implements Serializable {
     private String clientName = "";
     private String startHour = "";
     private String endHour = "";

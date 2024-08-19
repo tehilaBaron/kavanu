@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="FirebaseAuthTheme" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <!-- Set the background color -->
+        <item name="android:windowBackground">@color/purple2</item>
+        <!-- Optionally customize other attributes -->
+        <item name="colorPrimary">@color/purple1</item>
+    </style>
+</resources>

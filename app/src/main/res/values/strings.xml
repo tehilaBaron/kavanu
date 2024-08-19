@@ -4,4 +4,5 @@
     <string name="google_maps_key">AIzaSyASs2Y-AUr2Vr5c_RY9VJ9uJp9Q3u0OJ_I</string>
     <string name="turn">לקביעת תור</string>
     <string name="services">בחרי את השירותים הרצויים</string>
+    <string name="selectHour">בחרי את השעה המתאימה לך</string>
 </resources>
